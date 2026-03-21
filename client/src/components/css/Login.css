@@ -1,0 +1,144 @@
+/* ===== LOGIN PAGE ===== */
+
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000000, #1e293b);
+  overflow: hidden;
+  position: relative;
+}
+
+/* glowing background effect */  
+.login-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: #25d4eb;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.4;
+  top: -100px;
+  left: -100px;
+}
+
+/* card */
+.login-card {
+  width: 380px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: white;
+  animation: fadeIn 0.4s ease;
+}
+
+/* title */
+.brand-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #25d4eb;
+  margin-bottom: 5px;
+}
+
+.brand-sub {
+  font-size: 13px;
+  margin-bottom: 25px;
+  color: #cbd5e1;
+}
+
+/* inputs */
+.login-card input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+.login-card input::placeholder {
+  color: #ddd;
+}
+
+/* password wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* buttons */
+.admin-login-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #25d4eb;
+  color: black;
+  transition: 0.3s ease;
+}
+
+.admin-login-btn:hover {
+  background: #1bb9cf;
+  transform: translateY(-2px);
+}
+
+/* switch button */
+.switch-btn {
+  width: 100%;
+  padding: 9px;
+  border-radius: 25px;
+  border: 1px solid #25d4eb;
+  background: transparent;
+  color: #25d4eb;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.switch-btn:hover {
+  background: #25d4eb;
+  color: black;
+}
+
+/* divider */
+.divider {
+  margin: 15px 0;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  .login-card {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

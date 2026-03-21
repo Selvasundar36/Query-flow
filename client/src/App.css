@@ -1,0 +1,473 @@
+/* ===== GLOBAL ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f3f4f6;
+  overflow: hidden; /* no double scroll */
+}
+
+/* ===== MAIN LAYOUT ===== */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ===== HEADER ===== */
+/* ===== HEADER ===== */
+.header-user {
+  height: 60px;
+  background: linear-gradient(90deg, #000000, #111111);
+  border-bottom: 2px solid #25d4eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.header-user h1 {
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #25d4eb;
+}
+
+/* ===== LEFT + RIGHT WRAPPER ===== */
+/* ===== MAIN LAYOUT ===== */
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 300px;
+  background: #ffffff;
+  border: 2px solid #25d4eb;
+  margin: 20px;
+  
+  border-radius: 20px;
+
+  /* IMPORTANT */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== FIXED / STICKY HEADER ===== */
+.head {
+  background-color: #25d4eb;
+  padding: 10px;
+  text-align: center;
+
+  /* FIX */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  /* width issue fix */
+  border-radius: 18px 18px 0 0;
+}
+
+/* ===== ROOMS SCROLL AREA ===== */
+.rooms {
+  
+  padding: 5px;
+
+  flex: 1;                 /*  remaining height */
+  overflow-y: auto;        /*  scroll only here */
+  
+}
+
+/* optional – smooth scroll look */
+.rooms::-webkit-scrollbar {
+  width: 6px;
+}
+.rooms::-webkit-scrollbar-thumb {
+  background: #25d4eb;
+  border-radius: 10px;
+}
+
+
+
+.login-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ===== ROOM CARD ===== */
+.room-btn {
+  min-height: 130px;
+  width: 100%;
+  border-radius: 14px;
+  border: 5px solid #d6dbe4;
+  background: #b2d9ff;
+  cursor: pointer;
+  padding: 6px;
+  transition: all 0.2s ease;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  
+}
+
+.room-btn:hover {
+  transform: translateY(-4px);
+  border-color: #25d4eb;
+  background: #eff6ff;
+}
+
+.room-btn.active {
+  background: #adf2f7;
+  border-color: #46eb25;
+}
+
+/* ===== ROOM TOP ===== */
+.room-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  margin-top: 10px;
+  flex-wrap: wrap; /* prevent breaking badly */
+}
+
+/* ===== PRIME USERS ===== */
+.prime-users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.prime {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CHAT AREA (RIGHT) ===== */
+.chat-area {
+  flex: 1;
+  background: #f3f4f6;
+  display: flex;
+  overflow: hidden;
+}
+
+/* empty state */
+.empty-chat {
+  margin: auto;
+  color: #6b7280;
+  font-size: 18px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100px;
+    
+  }
+  .head{
+    font-size: 12px;
+  }
+
+  .room-btn {
+    min-height: auto;
+    padding: 8px;
+  }
+
+  .room-top span {
+    font-size: 12px;
+  }
+
+  .prime-users {
+    flex-wrap: wrap;
+  }
+}
+.join-container{
+ 
+  display: flex;
+  align-items: center;
+
+}
+/* ================= ADMIN PANEL ================= */
+
+.admin-panel {
+  padding: 25px;
+  background: #f4f6f9;
+  height: 100%;
+  overflow-y: auto;
+  
+}
+
+.admin-panel h2 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.admin-section {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-section h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Inputs */
+.admin-panel input,
+.admin-panel select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  transition: 0.2s ease;
+}
+
+.admin-panel input:focus,
+.admin-panel select:focus {
+  border-color: #25d4eb;
+  box-shadow: 0 0 0 2px rgba(37, 212, 235, 0.2);
+}
+
+/* Buttons */
+.admin-panel button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #25d4eb;
+  color: #000;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.admin-panel button:hover {
+  background: #1bb9cf;
+}
+
+/* Delete button style */
+.admin-delete-btn {
+  background: #ff5c5c;
+  color: white;
+}
+
+.admin-delete-btn:hover {
+  background: #e04848;
+}
+
+/* Prime slots container */
+.prime-slot-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.prime-slot-container input {
+  width: 100%;
+}
+
+/* Room list inside delete section */
+.room-delete-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Admin button in header */
+.admin-toggle-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-toggle-btn:hover {
+  background: #444;
+}
+.ad-bt{
+  border: #f9fafa 2px solid;
+  background-color: #25d4eb;
+  border-radius: 20px;
+  padding: 5px;
+  
+  margin-left: 30px;
+}
+.logout-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: white 2px solid;
+  margin-left: 20px;
+}
+
+.logout-btn:hover {
+  background: #d9363e;
+}
+.user-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #25d4eb;
+  transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(37, 212, 235, 0.6);
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 65px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  z-index: 200;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.2s ease-in-out;
+  border-top: 4px solid #25d4eb;
+}
+
+/* smooth fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #25d4eb;
+  margin-bottom: 10px;
+}
+
+.profile-info h3 {
+  margin: 6px 0 2px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.profile-info p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+  word-break: break-all;
+}
+.profile-info input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 10px;
+  transition: 0.2s ease;
+}
+
+.profile-info input:focus {
+  border-color: #25d4eb;
+  box-shadow: 0 0 0 2px rgba(37, 212, 235, 0.2);
+}
+.profile-info button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+/* Edit button */
+.profile-info button:first-of-type {
+  background: #25d4eb;
+  color: #000;
+}
+
+.profile-info button:first-of-type:hover {
+  background: #1bb9cf;
+  transform: translateY(-2px);
+}
+
+/* Save button when editing */
+.profile-info button:last-of-type {
+  background: #000;
+  color: #25d4eb;
+  border: 2px solid #25d4eb;
+}
+
+.profile-info button:last-of-type:hover {
+  background: #25d4eb;
+  color: #000;
+}
+.edit-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #25d4eb;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
