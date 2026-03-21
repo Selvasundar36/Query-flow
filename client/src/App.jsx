@@ -69,7 +69,7 @@ const handleSaveProfile = async () => {
       formData.append("image", selectedFile);
 
       const uploadRes = await fetch(
-        "http://localhost:5000/api/profile/upload-profile",
+        "https://query-flow-backend.onrender.com/api/profile/upload-profile",
         {
           method: "POST",
           body: formData,
@@ -87,7 +87,7 @@ const handleSaveProfile = async () => {
 
     // Update profile
     const updateRes = await fetch(
-      "http://localhost:5000/api/profile/update-profile",
+      "https://query-flow-backend.onrender.com/api/profile/update-profile",
       {
         method: "PUT",
         headers: {
@@ -138,7 +138,7 @@ useEffect(() => {
     setIsAdmin(true);
   }
 
-  fetch("http://localhost:5000/rooms")
+  fetch("https://query-flow-backend.onrender.com/rooms")
     .then((res) => res.json())
     .then((data) => {
       setRooms(data);
@@ -257,7 +257,7 @@ useEffect(() => {
     };
 
     const deleteRoom = async (roomName) => {
-      await fetch(`http://localhost:5000/rooms/${roomName}`, {
+      await fetch(`https://query-flow-backend.onrender.com/rooms/${roomName}`, {
         method: "DELETE",
       });
 
