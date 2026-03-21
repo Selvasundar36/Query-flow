@@ -20,6 +20,7 @@ function Login({ handleGoogleSuccess, handleAdminLogin }) {
             <div className="google-container">
               <GoogleLogin
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                clientSecret={process.env.GOOGLE_CLIENT_SECRET}
                 onSuccess={handleGoogleSuccess}
                 onError={() => console.log("Login Failed")}
               />
