@@ -18,7 +18,7 @@ function ChatRoom({ room, onNewMessage,loggedUser }) {
 const [joined, setJoined] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-
+  const [userRole, setUserRole] = useState("user");
   const [replyTo, setReplyTo] = useState(null);
   const [editingMsg, setEditingMsg] = useState(null);
   const [highlightMsgId, setHighlightMsgId] = useState(null);
@@ -105,6 +105,7 @@ const cancelSelection = () => {
       replyTo,
       type: isPrivate ? "private" : "public",
       privateTo: isPrivate ? privateTo : null,
+      role: userRole, 
       ...fileData,
     });
 
@@ -191,10 +192,11 @@ useEffect(() => {
 
   /* ================= SOCKET LISTENERS ================= */
   useEffect(() => {
-  socket.on("join_success", ({ messages, questions, primeUsers }) => {
+  socket.on("join_success", ({ messages, questions, primeUsers ,role}) => {
   setMessages(messages || []);
   setQuestions(questions || []);
-  setPrimeUsers(primeUsers || []); 
+  setPrimeUsers(primeUsers || []);
+  setUserRole(role || "user");
   setJoined(true);
 });
 
@@ -309,6 +311,7 @@ useEffect(() => {
           primeUsers={primeUsers} 
           activeQuestion={activeQuestion}
           highlightMsgId={highlightMsgId}
+            userRole={userRole} 
           onReply={setReplyTo}
           onEdit={(msg) => {
             setEditingMsg(msg);

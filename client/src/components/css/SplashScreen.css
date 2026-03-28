@@ -1,0 +1,120 @@
+/* 🌌 AURORA BACKGROUND */
+.splash-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle at 20% 20%, #00f2ff22, transparent),
+              radial-gradient(circle at 80% 80%, #ff00ff22, transparent),
+              linear-gradient(135deg, #0f2027, #203a43, #000000);
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* ✨ PARTICLES (floating dots) */
+.splash-container::before {
+  content: "QF";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(#00f2ff 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: particlesMove 20s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes particlesMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-200px, -200px); }
+}
+
+/* 🔵 LOGO ANIMATION (premium) */
+.logo-image {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+
+  animation: logoFloat 3s ease-in-out infinite,
+             logoGlow 2s ease-in-out infinite alternate;
+
+  box-shadow: 0 0 30px #00f2ff55;
+}
+
+/* floating */
+@keyframes logoFloat {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.08); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* glowing pulse */
+@keyframes logoGlow {
+  from {
+    box-shadow: 0 0 20px #00f2ff55, 0 0 40px #00f2ff33;
+  }
+  to {
+    box-shadow: 0 0 40px #00f2ff, 0 0 80px #00f2ff88;
+  }
+}
+
+/* ✨ TEXT STYLE */
+.logo {
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 SHINE EFFECT (premium look) */
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 150%; }
+}
+
+/* 🔥 TEXT GLOW */
+/* .logo {
+  animation: textGlow 2s ease-in-out infinite alternate;
+} */
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+  }
+  to {
+    text-shadow: 0 0 20px #00f2ff, 0 0 50px #00f2ff;
+  }
+}
+
+/* 🚀 FADE OUT */
+.fade-out {
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}

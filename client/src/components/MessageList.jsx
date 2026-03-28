@@ -1,5 +1,4 @@
 
-import { ADMIN_USERS } from "../constants/Adminuser";
 import { useState } from "react";
 
 const DELETE_ICON =
@@ -18,6 +17,7 @@ function MessageList({
   onDelete,
   onLike,
   bottomRef,
+  userRole 
 }) {
 
   //  MUST BE INSIDE COMPONENT
@@ -26,8 +26,7 @@ function MessageList({
   return (
     <div className="chat-box">
       {messages.map((msg) => {
-        const admins = ADMIN_USERS[room] || [];
-        const isAdmin = admins.includes(username);
+         const isAdmin = username === "Admin";  
         const isSender = msg.user === username;
         const userLiked = msg.likedBy?.includes(username);
 

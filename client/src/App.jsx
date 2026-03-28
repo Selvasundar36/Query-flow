@@ -4,7 +4,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { socket } from "./socket";
 import Login from "./components/Login";
-
+import SplashScreen from "./components/SplashScreen";
 
 /* simple fixed color generator */
 const getColorByName = (name) => {
@@ -39,6 +39,7 @@ function App() {
   const [editName, setEditName] = useState(false);
   const [newName, setNewName] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [showSplash, setShowSplash] = useState(true);
   const openRoom = (room) => {
     setActiveRoom(room);
     setShowAdmin(false);
@@ -367,8 +368,12 @@ const handleAdminLogin = (email, password) => {
     alert("Invalid Admin Credentials");
   }
 };
+if (showSplash) {
+  return <SplashScreen onFinish={() => setShowSplash(false)} />;
+}
 if (!user && !isAdmin) {
   return (
+    
     <Login
       handleGoogleSuccess={handleGoogleSuccess}
       handleAdminLogin={handleAdminLogin}

@@ -67,7 +67,7 @@ io.on("connection", (socket) => {
   //  Decide role
   let role = "user";
 
-  if (user === "Admin123") {
+  if (user === "admin@gmail.com") {
     role = "admin";
   } else if (roomData.primeUsers.includes(user)) {
     role = "prime";
@@ -81,9 +81,9 @@ io.on("connection", (socket) => {
 
   const messages = await Message.find({ room }).sort({ createdAt: 1 });
   const questions = await Question.find({ room }).sort({ createdAt: -1 });
-
+  const isAdmin = user === "Admin";
   socket.emit("join_success", {messages,
-      questions,primeUsers: roomData?.primeUsers || [] }
+      questions,primeUsers: roomData?.primeUsers || [],role: isAdmin ? "admin" : "user" }
   );
 
   console.log(`${user} joined ${room} as ${role}`);
@@ -111,6 +111,7 @@ socket.on("send_message", async (data) => {
       fileUrl: data.fileUrl || null,
       fileType: data.fileType || null,
       type: data.type || "public",
+      role: isAdmin ? "admin" : "user",
     });
 
     // ================= PRIVATE =================
@@ -190,7 +191,7 @@ socket.on("delete_message", async ({ messageId, username, room }) => {
 
     const user = await User.findOne({ username, room });
 
-    const isAdmin = user?.role === "admin";
+    const isAdmin = username === "Admin";
     const isSender = msg.user === username;
 
     if (!isSender && !isAdmin) return;
