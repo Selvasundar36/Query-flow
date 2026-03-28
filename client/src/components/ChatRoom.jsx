@@ -355,6 +355,7 @@ useEffect(() => {
       <QuestionPanel
   questions={questions}
   room={room}
+  activeQuestion={activeQuestion}   // ✅ ADD
   onSelectQuestion={(q) => {
     setActiveQuestion(q);
 
@@ -363,7 +364,10 @@ useEffect(() => {
       block: "center",
     });
   }}
-  onCancelSelection={cancelSelection}   // ✅ ADD THIS
+  onCancelSelection={() => {
+    setActiveQuestion(null);
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }}
   onClose={() => setShowQuestions(false)}
 />
       )}

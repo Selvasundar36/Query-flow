@@ -263,7 +263,7 @@
 .message.sent {
   margin-left: auto;
  
-  background: #98cdf8;
+  background: #b5d8f5;
 }
 
 .message.received {
@@ -607,12 +607,19 @@
    transform: translateY(-50%);
    border: none;
 }
+.active-q {
+  border: 2px solid #4cafef;
+  background: rgba(76, 175, 239, 0.1);
+}
+
 .cancel-btn {
-  margin-right: 10px;
-  padding: 5px 10px;
+  margin-top: 5px;
+  padding: 4px 8px;
   background: #ff4d4d;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 12px;
+  
 }
