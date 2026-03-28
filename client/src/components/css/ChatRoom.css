@@ -607,4 +607,12 @@
    transform: translateY(-50%);
    border: none;
 }
-
+.cancel-btn {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -47,6 +47,16 @@ const [joined, setJoined] = useState(false);
     setJoined(false);
     setMessages([]);
   };
+  /*questiin panel on select question handler moved to ChatRoom to pass refs and active question state*/
+
+const cancelSelection = () => {
+  setActiveQuestion(null);   
+
+  // ✅ scroll to bottom
+  bottomRef.current?.scrollIntoView({
+    behavior: "smooth",
+  });
+};
 
   /* ================= FILE UPLOAD ================= */
   const uploadFile = async (file) => {
@@ -342,18 +352,20 @@ useEffect(() => {
 
       </div>
          {showQuestions && (
-        <QuestionPanel
-          questions={questions}
-          room={room}
-          onSelectQuestion={(q) => {
-            setActiveQuestion(q);
-            messageRefs.current[q.questionId]?.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }}
-          onClose={() => setShowQuestions(false)}
-        />
+      <QuestionPanel
+  questions={questions}
+  room={room}
+  onSelectQuestion={(q) => {
+    setActiveQuestion(q);
+
+    messageRefs.current[q.questionId]?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }}
+  onCancelSelection={cancelSelection}   // ✅ ADD THIS
+  onClose={() => setShowQuestions(false)}
+/>
       )}
     </div>
   );
