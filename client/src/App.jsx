@@ -236,7 +236,7 @@ useEffect(() => {
       if (!newRoom.trim()) return;
 
       try {
-        const res = await fetch("http://localhost:5000/rooms", {
+        const res = await fetch("https://query-flow-backend.onrender.com/rooms", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name: newRoom }),
@@ -339,8 +339,8 @@ useEffect(() => {
 // Google Login
 const handleGoogleSuccess = async (credentialResponse) => {
   try {
-    const res = await fetch("http://localhost:5000/api/auth/google", {
-      method: "POST",
+    const res = await fetch("https://query-flow-backend.onrender.com/api/auth/google", {
+          method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token: credentialResponse.credential }),
     });
