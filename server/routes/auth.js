@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 const { OAuth2Client } = require("google-auth-library");
 
-const client = new OAuth2Client("509891504581-fiqbg3mp90kc33npivbi7q2d1b8v8r0a.apps.googleusercontent.com");
+const client = new OAuth2Client("795034589468-24h11sl11h3o3t981kla4uv8k60p91ja.apps.googleusercontent.com");
 
 router.post("/google", async (req, res) => {
   const { token } = req.body;

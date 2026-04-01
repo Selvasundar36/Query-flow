@@ -23,7 +23,7 @@ function SplashScreen({ onFinish }) {
   return (
     <div className={`splash-container ${fade ? "fade-out" : ""}`}>
       <img src={icon} alt="Logo" className="logo-image" />
-      <h1 className="logo" ><h1><span>w</span><span>e</span><span>L</span><span>c</span><span>o</span><span>m</span><span>e</span><span>.</span><span>.</span><span>!</span><span>!</span></h1></h1>
+      <h1 className="logo" ><span>w</span><span>e</span><span>L</span><span>c</span><span>o</span><span>m</span><span>e</span><span>.</span><span>.</span><span>!</span><span>!</span></h1>
     </div>
   );
 }

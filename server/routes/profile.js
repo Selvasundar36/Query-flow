@@ -2,31 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const cloudinary = require("../utils/cloudinary");
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
-
-router.post("/upload-profile", upload.single("image"), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ message: "No file uploaded" });
-    }
-
-    const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
-
-    const result = await cloudinary.uploader.upload(base64Image, {
-      folder: "profile_pictures",
-    });
-
-    res.json({ imageUrl: result.secure_url });
-
-  } catch (err) {
-    console.log("UPLOAD ERROR:", err);
-   const express = require("express");
-const router = express.Router();
-const multer = require("multer");
-const cloudinary = require("../utils/cloudinary");
-const User = require("../models/User");   // 🔥 IMPORTANT
+const User = require("../models/User");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -76,10 +52,6 @@ router.put("/update-profile", async (req, res) => {
   } catch (err) {
     console.log("UPDATE ERROR:", err);
     res.status(500).json({ message: "Update failed" });
-  }
-});
-
-module.exports = router; res.status(500).json({ message: "Upload failed" });
   }
 });
 

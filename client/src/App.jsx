@@ -339,19 +339,30 @@ useEffect(() => {
   };
 // Google Login
 const handleGoogleSuccess = async (credentialResponse) => {
+  console.log("TOKEN:", credentialResponse);
+
   try {
     const res = await fetch("https://query-flow-backend.onrender.com/api/auth/google", {
-          method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: credentialResponse.credential }),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: credentialResponse.credential,
+      }),
     });
 
     const data = await res.json();
+    console.log("BACKEND RESPONSE:", data);
+
+    if (!res.ok) {
+      alert("Login failed");
+      return;
+    }
 
     localStorage.setItem("user", JSON.stringify(data.user));
     setUser(data.user);
-     
-console.log("Google Response:", data);
+
   } catch (error) {
     console.log("Login Failed", error);
   }

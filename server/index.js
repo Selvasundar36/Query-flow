@@ -111,7 +111,7 @@ socket.on("send_message", async (data) => {
       fileUrl: data.fileUrl || null,
       fileType: data.fileType || null,
       type: data.type || "public",
-      role: isAdmin ? "admin" : "user",
+      
     });
 
     // ================= PRIVATE =================
