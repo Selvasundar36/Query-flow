@@ -33,8 +33,8 @@
 
 /* 🔵 LOGO ANIMATION (premium) */
 .logo-image {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   margin-bottom: 25px;
   border-radius: 50%;
 
@@ -63,21 +63,24 @@
 
 /* ✨ TEXT STYLE */
 .logo {
-  font-size: 6rem;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 4px;
   color: white;
   position: relative;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20%;
 }
 
-/* 🌟 SHINE EFFECT (premium look) */
+/* 🌟 SHINE EFFECT (premium look)
 .logo::after {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 50%;
+  border: none;
   height: 100%;
   background: linear-gradient(
     120deg,
@@ -91,12 +94,12 @@
 @keyframes shine {
   0% { left: -100%; }
   100% { left: 150%; }
-}
+} */
 
 /* 🔥 TEXT GLOW */
-/* .logo {
+.logo {
   animation: textGlow 2s ease-in-out infinite alternate;
-} */
+}
 
 @keyframes textGlow {
   from {
@@ -118,3 +121,30 @@
     transform: scale(1.1);
   }
 }
+
+
+
+
+/* 
+span {
+	animation: depth 1s ease-in-out alternate infinite;
+	position: relative;
+	display: inline-block;
+	font-variation-settings: "EDPT" 30;
+	font-palette: --Nabla;
+	@for $i from 1 through 12 {
+		&:nth-child(#{$i}) {
+			animation-delay: $i * 0.1s;
+		}
+	}
+}
+
+@keyframes depth {
+	0% {
+		transform: translatex(0) translatey(0);
+	}
+	100% {
+		font-variation-settings: "EDPT" 200;
+		transform: translatex(0.15em) translatey(0.1em);
+	}
+} */

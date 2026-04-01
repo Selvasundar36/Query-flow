@@ -12,7 +12,7 @@ router.post("/google", async (req, res) => {
   try {
     const ticket = await client.verifyIdToken({
       idToken: token,
-      audience: "509891504581-fiqbg3mp90kc33npivbi7q2d1b8v8r0a.apps.googleusercontent.com",
+      audience: "795034589468-24h11sl11h3o3t981kla4uv8k60p91ja.apps.googleusercontent.com",
     });
 
     const payload = ticket.getPayload();

@@ -350,6 +350,8 @@ const handleGoogleSuccess = async (credentialResponse) => {
 
     localStorage.setItem("user", JSON.stringify(data.user));
     setUser(data.user);
+     
+console.log("Google Response:", data);
   } catch (error) {
     console.log("Login Failed", error);
   }
