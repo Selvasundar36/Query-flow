@@ -162,7 +162,7 @@
 /* ================= FILE INPUT ================= */
 
 .chat-input {
-  position: sticky;
+  /* position: sticky; */
   bottom: 0;
   display: flex;
   align-items: center;
@@ -234,6 +234,7 @@
   .chat-input {
     padding: 8px;
     gap: 6px;
+    
   }
 
   .chat-input input:not([type="file"]) {

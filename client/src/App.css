@@ -187,16 +187,16 @@ a {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100px;
+    width: 70px;
     
   }
   .head{
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .room-btn {
     min-height: auto;
-    padding: 8px;
+    padding: 9px;
   }
 
   .room-top span {
