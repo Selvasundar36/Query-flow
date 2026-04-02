@@ -10,7 +10,7 @@ function ChatHeader({
     <div className="chat-header">
       <button onClick={onBack}>⬅️</button>
     
-      <h4 className="ch-name">{room} | {username}</h4>
+      <h4 className="ch-name">{room} </h4>
 
       <button
         className={`question-toggle ${showQuestions ? "active" : ""}`}

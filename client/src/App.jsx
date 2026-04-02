@@ -469,6 +469,7 @@ if (!user && !isAdmin) {
   key={activeRoom}
   room={activeRoom}
   loggedUser={user}
+   onBack={() => setActiveRoom(null)}
 />
           ) : (
             <div className="empty-chat">

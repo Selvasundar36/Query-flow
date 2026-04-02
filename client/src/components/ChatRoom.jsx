@@ -10,7 +10,7 @@ import ChatInput from "./ChatInput";
 import QuestionPanel from "./QuestionPanel";
 import ReplyPreview from "./ReplyPreview";
 
-function ChatRoom({ room, onNewMessage,loggedUser }) {
+function ChatRoom({ room, onNewMessage,loggedUser,onBack }) {
   const [username, setUsername] = useState(
   loggedUser?.name || loggedUser?.displayName || ""
 );
@@ -46,6 +46,7 @@ const [joined, setJoined] = useState(false);
     socket.emit("leave_room", { room, user: username });
     setJoined(false);
     setMessages([]);
+     onBack();
   };
   /*questiin panel on select question handler moved to ChatRoom to pass refs and active question state*/
 

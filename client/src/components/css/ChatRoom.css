@@ -26,13 +26,15 @@
   border-radius: 18px 18px 0 0;
 }
 .question-panel-header h4{
-  margin-left: 80px;
+ 
 }
 
 .question-panel-header img{
-  width: 25px;
-  height: 25px;
-   margin-top: 10px;
+  width: 40px;
+  height: 40px;
+   text-align: center;
+  display: flex;
+  justify-content: space-between;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -139,7 +141,10 @@
   justify-content: space-between; /* 🔥 important */
 }
 .ch-name{
-  margin-right: 80px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
 }
 /* ===== MESSAGE AREA (ONLY SCROLL HERE) ===== */
 .chat-box {
@@ -225,7 +230,7 @@
 
 /* ================= MOBILE RESPONSIVE ================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .chat-input {
     padding: 8px;
     gap: 6px;
@@ -246,6 +251,10 @@
   }
   .question-panel-header{
     font-size: 12px;
+  }
+  .question-panel-header img{
+    width: 25px;
+    height: 25px;
   }
 }
 
