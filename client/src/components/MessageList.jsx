@@ -25,7 +25,7 @@ function MessageList({
 
   return (
     <div className="chat-box">
-      {messages.map((msg) => {
+      {messages.map((msg, index) => {
          const isAdmin = username === "Admin";  
         const isSender = msg.user === username;
         const userLiked = msg.likedBy?.includes(username);
@@ -34,11 +34,10 @@ function MessageList({
         
         const isPrimeUser = primeUsers.includes(msg.user);
     //  const isPrimeUser = msg.role === "prime";
-        console.log("Message:", msg.user, msg.role);
 
         return (
           <div
-            key={msg._id}
+            key={msg._id || `msg-${index}`}
             ref={(el) => (messageRefs.current[msg._id] = el)}
             className={`message ${isSender ? "sent" : "received"}
               ${isPrimeUser ? "prime-user" : ""}

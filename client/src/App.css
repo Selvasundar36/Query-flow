@@ -187,24 +187,46 @@ a {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .sidebar {
-    width: 70px;
-    
+    width: 85px; /* Give slight breathing room on mobile */
+    margin: 10px;
   }
-  .head{
-    font-size: 10px;
+  .head {
+    font-size: 11px;
+    padding: 10px 4px;
+    word-break: break-word;
   }
-
   .room-btn {
     min-height: auto;
-    padding: 9px;
+    padding: 8px 4px;
+    margin-bottom: 10px;
   }
-
+  .room-top {
+    font-size: 11px;
+    gap: 4px;
+  }
   .room-top span {
-    font-size: 12px;
+    font-size: 11px; 
+    text-align: center;
   }
-
   .prime-users {
     flex-wrap: wrap;
+    gap: 4px;
+  }
+  .prime {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  .header-user {
+    padding: 0 15px;
+  }
+  .header-user h1 {
+    font-size: 15px;
+  }
+  .logout-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    margin-left: 10px;
   }
 }
 .join-container{
@@ -289,7 +311,7 @@ a {
 /* Prime slots container */
 .prime-slot-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 10px;
   margin-top: 10px;
 }
@@ -367,9 +389,10 @@ a {
 
 .profile-dropdown {
   position: absolute;
-  right: 0;
+  right: -5px; /* Safely anchor to right side */
   top: 65px;
   width: 280px;
+  max-width: 85vw; /* Ensure it never blocks entire mobile screen */
   background: #ffffff;
   border-radius: 15px;
   padding: 20px;

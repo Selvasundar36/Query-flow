@@ -1,6 +1,11 @@
 * {
+  box-sizing: border-box;
   scrollbar-width: none;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {

@@ -431,9 +431,9 @@ if (!user && !isAdmin) {
           </div>
 
           <div className="rooms">
-            {rooms.map((room) => (
+            {rooms.map((room, roomIndex) => (
               <div
-                key={room.name}
+                key={room.name || `room-${roomIndex}`}
                 className={`room-btn ${
                   activeRoom === room.name ? "active" : ""
                 }`}
@@ -444,17 +444,20 @@ if (!user && !isAdmin) {
                 </div>
 
                 <div className="prime-users">
-                  {(ROOM_USERS[room.name] || []).map((user) => (
-                    <div
-                      key={user}
-                      className="prime"
+                  {(ROOM_USERS[room.name] || []).map((user, pIndex) => {
+                    const cleanUser = user ? String(user).trim() : "";
+                    return (
+                      <div
+                        key={cleanUser ? `${cleanUser}-${pIndex}` : `empty-${pIndex}`}
+                        className="prime"
                       style={{
-                        backgroundColor: getColorByName(user),
+                        backgroundColor: getColorByName(cleanUser || "?"),
                       }}
                     >
-                      {user}
+                      {cleanUser}
                     </div>
-                  ))}
+                  );
+                })}
                 </div>
               </div>
             ))}

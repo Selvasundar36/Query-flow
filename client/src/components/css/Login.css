@@ -1,7 +1,7 @@
 /* ===== LOGIN PAGE ===== */
 
 .login-wrapper {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +27,7 @@
 /* card */
 .login-card {
   width: 380px;
+  max-width: 90vw; /* Fluid scale for small devices */
   padding: 40px 30px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.08);

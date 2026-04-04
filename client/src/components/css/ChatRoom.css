@@ -25,9 +25,6 @@
   /* width issue fix */
   border-radius: 18px 18px 0 0;
 }
-.question-panel-header h4{
- 
-}
 
 .question-panel-header img{
   width: 40px;
@@ -232,30 +229,40 @@
 
 @media (max-width: 768px) {
   .chat-input {
-    padding: 8px;
-    gap: 6px;
-    
+    padding: 8px 10px;
+    gap: 8px;
   }
 
   .chat-input input:not([type="file"]) {
-    font-size: 13px;
-    padding: 8px 12px;
+    font-size: 14px;
+    padding: 10px 12px;
   }
 
   .chat-input button {
-    padding: 7px 12px;
-    font-size: 8px;
+    padding: 8px 12px;
+    font-size: 13px; /* Upgraded from illegible 8px */
+    border-radius: 12px;
+    font-weight: 500;
   }
-  .question-panel{
-     width: 100px;
-    
+  
+  .question-panel {
+     width: 140px; /* Better readability than 100px */
+     margin: 10px 5px;
   }
-  .question-panel-header{
-    font-size: 12px;
+  
+  .question-panel-header {
+    font-size: 13px;
+    padding: 8px;
   }
-  .question-panel-header img{
+  
+  .question-panel-header img {
     width: 25px;
     height: 25px;
+  }
+
+  .message {
+    max-width: 90%; /* Let bubbles fill mobile screen comfortably */
+    margin-left: 10px;
   }
 }
 
@@ -267,7 +274,8 @@
   border-radius: 8px;
   margin-bottom: 10px;
   position: relative;
-   margin-left: 20px;
+  margin-left: 20px;
+  word-break: break-word; /* Prevent links/long text from breaking layout */
 }
 
 .message.sent {
@@ -530,6 +538,7 @@
   transform: translate(-50%, -50%);
   background: #ffffff;
   width: 320px;
+  max-width: 90vw; /* Fluid constraint for narrow screens */
   padding: 22px 24px;
   border-radius: 50px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
